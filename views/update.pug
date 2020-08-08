@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Update Ads below
+  //Insert form
+  form(method='POST' action='/update')
+    div
+        h2 Insert name
+        input(type='text' name= 'name' value=myitem.name)
+    div
+        h2 Description
+        input(type='text' name='description' value=myitem.description)
+    div
+        input(type='hidden' name='id' value=myitem.id)
+        button(type='submit' value='Submit') Submit

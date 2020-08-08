@@ -1,0 +1,23 @@
+﻿'use strict';
+var express = require('express');
+var router = express.Router();
+var userModel = require('../models/user');
+
+
+/* GET users listing. */
+router.get('/', function (req, res) {
+    res.send('respond with a resource');
+});
+
+/* GET users listing. */
+router.get('/', function (req, res) {
+    if (req.isAuthenticated()) {
+        userModel.find({}, function (err, users) {
+            res.render('users', { users: users, user: req.user });
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+module.exports = router;

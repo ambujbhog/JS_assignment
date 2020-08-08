@@ -1,0 +1,18 @@
+﻿extends layout
+
+block content
+  //Check for any articles being passed in from the server
+  if (myitems && myitems.length)
+    table
+        thead
+            th Name
+            th Description
+        tbody
+            //If there is articles, create a row and column for each article
+            each myitem in myitems
+                tr
+                    td= myitem.name
+                    td= myitem.description
+  else
+    h1 No Ads!
+
